@@ -37,7 +37,8 @@ public class WoodMod
 		
 		/** Initialize mod items*/
 		//ModItems.init();
-	}
+	} 
+	//test edit through github :)
 
 	@EventHandler
 	public void load(FMLInitializationEvent event)
