@@ -4,7 +4,7 @@ public class Reference
 {
 	/** General Mod related constants */
 	public static final String MOD_ID = "WoodMod";
-	public static final String MOD_NAME = "WoodMod";
+	public static final String MOD_NAME = "Wood_Mod";
 	public static final String VERSION_NUMBER = "@VERSION@"; //TODO add version coding
 	public static final String DEPENDENCIES = "reguired-after:Forge";
 	public static final int SHIFTED_ID_RANGE_CORRECTION = 256;
