@@ -4,8 +4,10 @@ package WoodMod.item;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemSword;
 
 public class ModItems 
 {
@@ -30,33 +32,31 @@ public class ModItems
 	Acacia -> durable = 50% more, Speed = 25% slower  
 	Dark Oak -> durable = 25% more, Speed = 15% slower 
 	 */
-	public static Item shovelIron;
-	public static Item pickaxeIron;
+	public static Item shovelWoodBirch;
+	public static Item pickaxeWoodBirch;
+	public static Item axeWoodBirch;
+	public static Item swordWoodBirch;
 	
 	//public static EnumToolMaterial SpruceTool = EnumHelper.addToolMaterial("SPRUCE", 0, maxUses, efficiency, damage, 15);
 	//public static EnumToolMaterial BirchTool = EnumHelper.addToolMaterial("BIRCH", 0, maxUses, efficiency, damage, 15);
 	//public static EnumToolMaterial JungleTool = EnumHelper.addToolMaterial("JUNGLE", 0, maxUses, efficiency, damage, 15);
 			
 	/**register item that changes once used*/
- 	public static void registerItemTool(int itemId, Item shovelItem, Item pickItem, EnumToolMaterial wood) //Item pickItem, Item axeItem, Item spadeItem, Item swordItem,
+ 	public static void registerItemTool(int itemId, Item shovelItem, Item pickItem, Item axeItem, Item swordItem, EnumToolMaterial materialType, String shovelName, String pickName, String axeName, String swordName) //Item pickItem, Item axeItem, Item spadeItem, Item swordItem,
  	{
- 		shovelItem = (new ItemSpade(0, wood).setUnlocalizedName("shovelIron").setTextureName("iron_shovel"));
- 		pickItem = (new ItemPickaxe(1, wood)).setUnlocalizedName("pickaxeIron").setTextureName("iron_pickaxe");
- 		
- 		LanguageRegistry.addName(shovelItem, "test 1.42");
- 		LanguageRegistry.addName(pickItem, "test 1.43");
- 		//registerItemWithContainer(item, ItemIds.*, itemBase , *, *F, Strings*, "");			
+ 		shovelItem = (new ItemSpade(itemId, materialType).setUnlocalizedName("shovelIron").setTextureName("iron_shovel"));
+ 		pickItem = (new ItemPickaxe(itemId + 1, materialType)).setUnlocalizedName("pickaxeIron").setTextureName("iron_pickaxe");
+ 		axeItem = (new ItemAxe(itemId + 2, materialType)).setUnlocalizedName("hatchetIron").setTextureName("iron_axe");
+ 		swordItem = (new ItemSword(itemId + 3, materialType)).setUnlocalizedName("swordIron").setTextureName("iron_sword");
+ 	    
+ 		LanguageRegistry.addName(shovelItem, shovelName);
+ 		LanguageRegistry.addName(pickItem, pickName);
+ 		LanguageRegistry.addName(axeItem, axeName);
+ 		LanguageRegistry.addName(swordItem, swordName);
  	}
 			
 	public static void init()
 	{
-		registerItemTool(27, shovelIron, pickaxeIron, EnumToolMaterial.EMERALD);
-		
-		//shovelIron = (new ItemSpade(0, EnumToolMaterial.IRON)).setUnlocalizedName("shovelIron").setTextureName("iron_shovel");
-	    
+		registerItemTool(0, shovelWoodBirch, pickaxeWoodBirch, axeWoodBirch, swordWoodBirch, EnumToolMaterial.EMERALD, "Birch Shovel", "Birch Pickaxe", "Birch Axe", "Birch Sword");
 	}
-	
-	/**
-	(String name of material, Harvest lvl, durable, strength of tool against blocks, damage against mobs, enchantability)
-	*/
 }
