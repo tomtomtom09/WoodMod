@@ -4,6 +4,7 @@ import java.io.File;
 
 import WoodMod.Configuration.ConfigurationHandler;
 import WoodMod.core.proxy.CommonProxy;
+import WoodMod.item.ModItems;
 import WoodMod.lib.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -33,7 +34,7 @@ public class WoodMod
 				+ File.separator + Reference.MOD_ID + ".cfg"));
 		
 		/** Initialize mod items*/
-		//ModItems.init();	
+		ModItems.init();	
 		
 		/** Initialize mod items*/
 		//ModItems.init();
